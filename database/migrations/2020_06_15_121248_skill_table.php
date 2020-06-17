@@ -14,6 +14,11 @@ class SkillTable extends Migration
     public function up()
     {
         //
+        Schema::create('skill', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->string('skill_name');
+        });
     }
 
     /**
@@ -24,5 +29,6 @@ class SkillTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('skill');
     }
 }

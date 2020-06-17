@@ -24,6 +24,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('prefix/delete', 'Admin\ProfileController@delete');
 });
 
+Route::group(['prefix' => 'member', 'middleware' => 'auth'], function() {
+    Route::get('request/create', 'Member\RequestController@add');
+    Route::post('request/create', 'Member\RequestController@create');
+    Route::get('request/edit', 'Member\RequestController@edit');
+    Route::post('request/edit', 'Member\RequestController@update');
+});
+
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');

@@ -14,6 +14,13 @@ class ShiftRulesTable extends Migration
     public function up()
     {
         //
+        
+       Schema::create('shift_rules', function(Blueprint $table) {
+           $table->increments('id');
+           $table->increments('duty');
+           $table->increments('required_number');
+           $table->increments('required_skill');
+       });
     }
 
     /**
@@ -24,5 +31,6 @@ class ShiftRulesTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('shift_rules');
     }
 }

@@ -14,6 +14,15 @@ class RequestTable extends Migration
     public function up()
     {
         //
+        Schema::create('request', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('name');
+            $table->increments('request_day_off');
+            $table->increments('part_or_whole');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+        });
     }
 
     /**
@@ -24,5 +33,6 @@ class RequestTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('request');
     }
 }

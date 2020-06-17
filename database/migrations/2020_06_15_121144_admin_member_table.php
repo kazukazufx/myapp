@@ -14,6 +14,15 @@ class AdminMemberTable extends Migration
     public function up()
     {
         //
+        
+        Schema::create('admin_member', function(Blueprint $table) {
+            $table->bigIncrements('user_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->increments('role');
+            $table->increments('level');
+        });
     }
 
     /**
@@ -24,5 +33,6 @@ class AdminMemberTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('admin_member');
     }
 }
