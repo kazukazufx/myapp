@@ -9,6 +9,12 @@ use App\AdminMember;
 class ProfileController extends Controller
 {
     //
+    
+    public function index()
+    {
+        return view('admin.profile.mypage');
+    }
+    
     public function add()
     {
         return view('admin.profile.create');
@@ -17,7 +23,7 @@ class ProfileController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, AdminMember::$rules);
-        $profile = new AdminMember;
+        $profile = new Admin;
         $form = $request->all();
         
         unset($form['_token']);
@@ -26,7 +32,7 @@ class ProfileController extends Controller
         $profile->fill($form);
         $profile->save();
         
-        return redirect('admin/profile.create');
+        return redirect('admin/profile/create');
     }
     
     public function edit(Request $request)
@@ -56,6 +62,6 @@ class ProfileController extends Controller
         $profile = AdminMember::find($request->id);
         $profile->delete();
         
-        return redirect('admin.profile.create');
+        return redirect('admin/profile/create');
     }
 }

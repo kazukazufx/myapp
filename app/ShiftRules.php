@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class ShiftRules extends Model
 {
     //
-    protected $guarded = array('id');
+    protected $guarded = array('shift_rules_id');
     
     public static $rules = array(
         'duty' => 'required',
         'required_number' => 'required',
-        'required_skill' => 'required',
+        'alert_1' => 'nullable',
+        'alert_2' => 'nullable',
         );
     public function request()
     {

@@ -13,9 +13,10 @@ class MemberController extends Controller
         return view('member.profile.create');
     }
     
-    public function create()
+    public function create(Request $request)
     {
         //
+        $this->validate($request, ['name' => 'required',]);
     }
     
     public function edit()
