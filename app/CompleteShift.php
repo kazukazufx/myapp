@@ -14,9 +14,8 @@ class CompleteShift extends Model
         'member_id' => 'required',
         'admin_name' => 'required',
         'member_name' => 'required',
-        'calendar_month' =>'required',
-        'calendar_year' => 'required',
-        'duty' => 'required',
-        'created_at' => 'required',
+        'day' =>'required',
+        'month' =>'required',
+        'year' => 'required',
         );
 }

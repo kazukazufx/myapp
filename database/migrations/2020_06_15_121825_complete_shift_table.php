@@ -18,12 +18,12 @@ class CompleteShiftTable extends Migration
            $table->increments('complete_shift_id');
            $table->integer('admin_id');
            $table->integer('member_id');
-           $table->integer('admin_name');
-           $table->integer('member_name');
-           $table->date('calendar_month');
-           $table->date('calendar_year');
-           $table->integer('duty');
-           $table->timestamps('created_at');
+           $table->string('admin_name');
+           $table->string('member_name');
+           $table->string('day');
+           $table->string('month');
+           $table->string('year');
+           $table->timestamps();
         });
     }
 
