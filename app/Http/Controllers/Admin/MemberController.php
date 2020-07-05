@@ -10,27 +10,55 @@ class MemberController extends Controller
     //
     public function add()
     {
-        return view('member.profile.create');
+        return view('admin.member.create');
     }
     
     public function create(Request $request)
     {
         //
-        $this->validate($request, ['name' => 'required',]);
+        $this->validate($request, Member::$rules);
+        $member = new Member;
+        $form = $request->all();
+        
+        unset($form['_token']);
+        unset($form['image']);
+        
+        $member->fill($form);
+        $member->save();
+        
+        return redirect('admin/member/create');
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
         //
+        $member = Member::find($request->id);
+        if(empty($profile)) {
+            abort(404);
+        }
+        return view('admin.member.edit');
     }
     
-    public function update()
+    public function update(Request $request)
     {
         //
+        $this->validate($request, Member::$rules);
+        $member = Member::find($request->id);
+        $member_form = $request->all();
+        
+        unset($member_form['_token']);
+        
+        $member->fill($member_form)->save();
+        
+        return redirect('admin/member/edit?id=' . $request->id);
     }
     
-    public function delete()
+    public function delete(Request $request)
     {
         //
+        $member = Member::find($request->id);
+        $member->delete();
+        
+        return redirect('admin/member/create');
     }
 }

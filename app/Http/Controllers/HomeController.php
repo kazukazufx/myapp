@@ -14,6 +14,6 @@ class HomeController extends Controller
     
     public function login()
     {
-        return view('admin.profile.create');
+        return view('admin.profile.mypage');
     }
 }

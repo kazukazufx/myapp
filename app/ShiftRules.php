@@ -12,11 +12,6 @@ class ShiftRules extends Model
     public static $rules = array(
         'duty' => 'required',
         'required_number' => 'required',
-        'alert_1' => 'nullable',
-        'alert_2' => 'nullable',
         );
-    public function request()
-    {
-        return $this->hasMany('App\Request');
-    }
+        
 }

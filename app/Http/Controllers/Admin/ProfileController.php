@@ -22,7 +22,7 @@ class ProfileController extends Controller
     
     public function create(Request $request)
     {
-        $this->validate($request, AdminMember::$rules);
+        $this->validate($request, Admin::$rules);
         $profile = new Admin;
         $form = $request->all();
         
@@ -37,7 +37,7 @@ class ProfileController extends Controller
     
     public function edit(Request $request)
     {
-        $profile = AdminMember::find($request->id);
+        $profile = Admin::find($request->id);
         if(empty($profile)) {
             abort(404);
         }
@@ -46,8 +46,8 @@ class ProfileController extends Controller
     
     public function update(Request $request)
     {
-        $this->validate($request, AdminMember::$rules);
-        $profile = AdminMember::find($request->id);
+        $this->validate($request, Admin::$rules);
+        $profile = Admin::find($request->id);
         $profile_form = $request->all();
         
         unset($profile_form['_token']);
@@ -59,7 +59,7 @@ class ProfileController extends Controller
     
     public function delete(Request $request)
     {
-        $profile = AdminMember::find($request->id);
+        $profile = Admin::find($request->id);
         $profile->delete();
         
         return redirect('admin/profile/create');
