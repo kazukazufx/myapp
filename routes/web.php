@@ -38,5 +38,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     
 });
 
-
-Auth::routes();
