@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@login');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('mypage', 'Admin\ProfileController@index');
+    Route::post('mypage', 'Admin\ProfileController@index');
     Route::get('/profile/create', 'Admin\ProfileController@add');
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/edit', 'Admin\ProfileController@edit');

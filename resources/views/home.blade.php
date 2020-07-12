@@ -16,6 +16,34 @@
 
                     You are logged in!
                 </div>
+                <form action="{{ action('Admin\ProfileController@add') }}" method="get">
+                <div class="form-group row">
+                    <label class="col-md-2" for="register">登録</label>
+                    <div class="col-md-7">
+                        <input type="submit" class="btn btn-primary" value="登録">
+                    </div>
+                </form>
+                
+                <form action="{{ action('Admin\ProfileController@index') }}" method="post" enctype=multipart/form-data>
+                    <div class="form-group row">
+                    <label class="col-md-2" for="email">E-MAIL</label>
+                        <div class="col-md-7">
+                            <input type="email" name="email" value="{{ old('email') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                    <label class="col-md-2" for="email">Password</label>
+                        <div class="col-md-7">
+                            <input type="password" name="password" value="{{ old('password') }}">
+                        </div>
+                    </div>
+                    <div class="form^group row">
+                        <label class="col-md-2" for="login">ログイン</label>
+                        <div class="col-md-7">
+                            <input type="submit" class="btn btn-primary" value="ログイン">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

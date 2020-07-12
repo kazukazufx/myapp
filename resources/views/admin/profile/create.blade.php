@@ -21,7 +21,7 @@
                         <input type="text" class="form-control" name="admin_name" value="{{ old('name') }}">
                     </div>
                 </div>
-                </div>
+        </div>
                 <div class="form-group-row">
                 <label class="col-md-10" for="email">E-mail</label>
                 <div class="col-md-10">
@@ -31,11 +31,12 @@
                     <label class="col-md-10" for="password">Password</label>
                     <div class="col-md-10">
                         <input type="password" name="password" row="1" {{ old('password') }}>
+                    </div>
                 </div>
                 {{ csrf_field() }}
                 <div class="m-5"></div>
                 <input type="submit" class="btn btn-primary" value="登録">
-                </form>
+            </form>
             </div>
         </div>
     </div>
