@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@login');
-Route::get('/profile/create', 'Admin\ProfileController@add');
-Route::post('profile/create', 'Admin\ProfileController@create');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('mypage', 'Admin\ProfileController@index');
+    Route::get('/profile/create', 'Admin\ProfileController@add');
+    Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
     Route::get('profile/delete', 'Admin\ProfileController@delete');
@@ -38,3 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

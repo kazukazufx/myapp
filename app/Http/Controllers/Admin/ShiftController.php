@@ -15,7 +15,7 @@ class ShiftController extends Controller
     
     public function create()
     {
-        $this->validate($request, ShiftRules::$rules);
+        $this->validate($request, CompleteShift::$rules);
         $shift = new ShiftRules;
         $form = $request->all();
         
@@ -30,7 +30,7 @@ class ShiftController extends Controller
     
     public function edit(Request $request)
     {
-        $shift = ShiftRules::find($request->id);
+        $shift = CompleteShift::find($request->id);
         if(empty($profile)) {
             abort(404);
         }

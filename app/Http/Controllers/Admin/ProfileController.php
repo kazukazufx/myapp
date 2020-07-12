@@ -27,7 +27,6 @@ class ProfileController extends Controller
         $form = $request->all();
         
         unset($form['_token']);
-        unset($form['image']);
         
         $profile->fill($form);
         $profile->save();

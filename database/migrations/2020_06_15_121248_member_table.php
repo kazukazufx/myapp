@@ -16,7 +16,7 @@ class MemberTable extends Migration
         //
         Schema::create('member', function(Blueprint $table) {
             $table->increments('member_id');
-            $table->bigIncrements('admin_id');
+            $table->integer('admin_id');
             $table->string('member_name');
         });
     }

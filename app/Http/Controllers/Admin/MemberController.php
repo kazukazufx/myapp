@@ -21,7 +21,6 @@ class MemberController extends Controller
         $form = $request->all();
         
         unset($form['_token']);
-        unset($form['image']);
         
         $member->fill($form);
         $member->save();

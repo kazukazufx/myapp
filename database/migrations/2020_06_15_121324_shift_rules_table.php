@@ -18,7 +18,7 @@ class ShiftRulesTable extends Migration
        Schema::create('shift_rules', function(Blueprint $table) {
            $table->increments('shift_rules_id');
            $table->string('duty');
-           $table->increments('required_number');
+           $table->integer('required_number');
        });
     }
 
