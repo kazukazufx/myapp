@@ -18,6 +18,7 @@ class MemberTable extends Migration
             $table->increments('member_id');
             $table->integer('admin_id');
             $table->string('member_name');
+            $table->timestamps();
         });
     }
 

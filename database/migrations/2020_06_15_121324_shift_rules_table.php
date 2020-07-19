@@ -19,6 +19,7 @@ class ShiftRulesTable extends Migration
            $table->increments('shift_rules_id');
            $table->string('duty');
            $table->integer('required_number');
+           $table->timestamps();
        });
     }
 

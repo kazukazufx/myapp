@@ -1,4 +1,4 @@
-<?phpskill
+<?php
 
 namespace App;
 
@@ -14,4 +14,5 @@ class Admin extends Model
         'email' => 'required',
         'password' => 'required',
         );
+    protected $table = 'admin';
 }

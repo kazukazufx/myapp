@@ -20,6 +20,7 @@ class MemberDutyTable extends Migration
             $table->integer('admin_id');
             $table->integer('member_id');
             $table->string('duty');
+            $table->timestamps();
         });
     }
 

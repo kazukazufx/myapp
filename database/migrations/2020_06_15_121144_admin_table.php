@@ -20,6 +20,7 @@ class AdminTable extends Migration
             $table->string('admin_name');
             $table->string('email');
             $table->string('password');
+            $table->timestamps();
         });
     }
 

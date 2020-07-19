@@ -13,5 +13,7 @@ class Member extends Model
         'admin_id' => 'required',
         'member_name' => 'required',
         );
+        
+    protected $table = 'member';
 }
 

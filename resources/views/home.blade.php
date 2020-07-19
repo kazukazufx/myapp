@@ -1,51 +1,29 @@
-@extends('layouts.app')
+@extends('layouts.home')
+
+@section('title','ホーム画面')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-                <form action="{{ action('Admin\ProfileController@add') }}" method="get">
-                <div class="form-group row">
-                    <label class="col-md-2" for="register">登録</label>
-                    <div class="col-md-7">
-                        <input type="submit" class="btn btn-primary" value="登録">
-                    </div>
+     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2>ホーム画面</h2>
+                <form action="{{ action('HomeController@login')}}" method="post" enctype="multipart/from-data">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email">
+                    <br>
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password">
+                    <br>
+                    <label for="submit">ログイン</label>
+                    <input type="submit" class="btn btn-primary" name="submit" value="ログイン">
+                    <br>
                 </form>
                 
-                <form action="{{ action('Admin\ProfileController@index') }}" method="post" enctype=multipart/form-data>
-                    <div class="form-group row">
-                    <label class="col-md-2" for="email">E-MAIL</label>
-                        <div class="col-md-7">
-                            <input type="email" name="email" value="{{ old('email') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                    <label class="col-md-2" for="email">Password</label>
-                        <div class="col-md-7">
-                            <input type="password" name="password" value="{{ old('password') }}">
-                        </div>
-                    </div>
-                    <div class="form^group row">
-                        <label class="col-md-2" for="login">ログイン</label>
-                        <div class="col-md-7">
-                            <input type="submit" class="btn btn-primary" value="ログイン">
-                        </div>
-                    </div>
+                <from action="{{ action('HomeController@index') }}" method="post">
+                    <label for="register">登録</register>
+                    <input type="submit"  class="btn btn-primary" name="register" value="登録">
                 </form>
             </div>
         </div>
     </div>
-</div>
 @endsection
