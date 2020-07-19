@@ -7,7 +7,7 @@
          <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>プロフィール変更</h2>
-                    <form action="{{ action('Admin\ProfileController@create' }}" method="post" enctype="multipart/from-data">
+                    <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/from-data">
                         @if(count($errors) > 0)
                             <ul>
                                  @foreach(errors->all() as $e)
