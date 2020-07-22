@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.admin_create');
+        return view('home');
+    }
+    
+    public function login()
+    {
+        return view('admin.profile.mypage');
     }
 }
