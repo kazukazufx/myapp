@@ -16,9 +16,6 @@
                     <label for ="email">メールアドレス</label>
                     <input type="email" id="email" value="{{ $profile->email }}" readonly>
                     <br>
-                    <label for ="password">パスワード</label>
-                    <input type="password" id="password" value="{{ $profile->password }}" readonly>
-                    <br>
                     <input type="submit" class="btn btn-primary" value="変更登録">
             </div>
         </div>

@@ -20,7 +20,7 @@
                     <br>
                 </form>
                 
-                <from action="{{ action('Admin\ProfileController@add') }}" method="get">
+                <form action="{{ action('Admin\ProfileController@add') }}" method="get">
                     <label for="register">登録</register>
                     <input type="submit"  class="btn btn-primary" name="register" value="登録">
                 </form>

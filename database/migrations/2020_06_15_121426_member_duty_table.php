@@ -15,7 +15,7 @@ class MemberDutyTable extends Migration
     {
         //
         Schema::create('member_duty', function(Blueprint $table) {
-            $table->increments('member_duty_id');
+            $table->increments('id');
             $table->integer('complete_shift_id');
             $table->integer('admin_id');
             $table->integer('member_id');

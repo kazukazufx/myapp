@@ -13,6 +13,9 @@ class ProfileController extends Controller
     
     public function index()
     {
+        $auths = Auth::user();
+        var_dump($auths);
+        return;
         return view('admin.profile.mypage');
     }
     

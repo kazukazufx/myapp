@@ -15,7 +15,7 @@ class CompleteShiftTable extends Migration
     {
         //
         Schema::create('complete_shift', function(Blueprint $table) {
-           $table->increments('complete_shift_id');
+           $table->increments('id');
            $table->integer('admin_id');
            $table->integer('member_id');
            $table->string('admin_name');

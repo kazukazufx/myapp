@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,7 @@ class HomeController extends Controller
     
     public function login()
     {
-        return view('admin.profile.mypage');
+        $auths = Auth::user(); //ログインしているユーザーの情報を取得する
+        return view('admin.profile.mypage', ['profile' => $auths ]);
     }
 }
