@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@login');
+Route::post('/register', 'Auth\RegisterController@validator');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('mypage', 'Admin\ProfileController@index');
     Route::post('mypage', 'Admin\ProfileController@create');
-    Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::post('profile/create', 'Admin\ProfileController@create');
+    Route::get('home', 'HomeController@add');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
     Route::get('profile/delete', 'Admin\ProfileController@delete');

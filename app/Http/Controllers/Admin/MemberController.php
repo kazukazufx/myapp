@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -17,20 +18,14 @@ class MemberController extends Controller
     public function create(Request $request)
     {
         //
-        $member_names = $member_name;
-        
-        foreach($member_names as $member_name) {
        
         $this->validate($request, Member::$rules);
         $member = new Member;
-        $form = $request->all();
-        
+        $form = $request->member_name;
         unset($form['_token']);
         
-        $member->fill($form);
-        $member->save(); }
-        
         return redirect('admin/member/create');
+        
     }
     
     public function edit(Request $request)

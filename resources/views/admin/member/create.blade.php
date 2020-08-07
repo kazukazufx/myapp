@@ -10,19 +10,7 @@
                     <form action="{{ action('Admin\MemberController@create') }}" method="post">
                         @csrf
                         <label for="name">名前</label>
-                        <input type="text" id="name" name="member_name[]">
-                        <br>
-                        <label for="name">名前</label>
-                        <input type="text" id="name" name="member_name[]">
-                        <br>
-                        <label for="name">名前</label>
-                        <input type="text" id="name" name="member_name[]">
-                        <br>
-                        <label for="name">名前</label>
-                        <input type="text" id="name" name="member_name[]">
-                        <br>
-                        <label for="name">名前</label>
-                        <input type="text" id="name" name="member_name[]">
+                        <input type="text" id="name" name="member_name">
                         <br>
                         <input type="submit" class="btn btn-primary" value="登録">
                     </form>
