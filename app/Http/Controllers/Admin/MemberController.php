@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; //admin_idを得るために必要だと思い加えた
 
 class MemberController extends Controller
 {
@@ -23,7 +23,7 @@ class MemberController extends Controller
         $this->validate($request, Member::$rules);
         $member = new Member;
         $form = $request->all();
-        $form = Auth::user()->id;
+        $form = Auth::user()->id; //admin_idを$formに加える
         unset($form['_token']);
         $member->fill($form)->save();
         
