@@ -23,9 +23,10 @@ class MemberController extends Controller
         $this->validate($request, Member::$rules);
         $member = new Member;
         $form = $request->all();
-        $form = Auth::user()->id; //admin_idを$formに加える
         unset($form['_token']);
-        $member->fill($form)->save();
+        $member->fill($form);
+        $member->admin_id = Auth::user()->id; //admin_idを得る
+        $member->save;
         
         return redirect('admin/member/create');
         
