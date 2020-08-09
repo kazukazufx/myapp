@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
@@ -21,8 +22,10 @@ class MemberController extends Controller
        
         $this->validate($request, Member::$rules);
         $member = new Member;
-        $form = $request->member_name;
+        $form = $request->all();
+        $form = Auth::user()->id;
         unset($form['_token']);
+        $member->fill($form)->save();
         
         return redirect('admin/member/create');
         
