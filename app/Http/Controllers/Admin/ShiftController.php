@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Member;
+use App\CompleteShift;
 
 class ShiftController extends Controller
 {
@@ -18,10 +20,7 @@ class ShiftController extends Controller
         $this->validate($request, CompleteShift::$rules);
         $shift = new ShiftRules;
         $form = $request->all();
-        
         unset($form['_token']);
-        unset($form['image']);
-        
         $shift->fill($form);
         $shift->save();
         
@@ -30,8 +29,8 @@ class ShiftController extends Controller
     
     public function edit(Request $request)
     {
-        $shift = CompleteShift::find($request->id);
-        if(empty($profile)) {
+        $shift = CompleteShift::find($shift->id);
+        if(empty($shift)) {
             abort(404);
         }
         return view('admin.shift.edit');

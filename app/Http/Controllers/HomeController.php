@@ -32,4 +32,9 @@ class HomeController extends Controller
         $auths = Auth::user(); //ログインしているユーザーの情報を取得する
         return view('admin.profile.mypage', ['profile' => $auths ]);
     }
+    
+    public function logout()
+    {
+        return view('/');
+    }
 }
