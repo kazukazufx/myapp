@@ -10,130 +10,101 @@
                 <table class="table table-dark table-striped table-bordered table-hover table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">9月</th>
-                            <th scope="col">1日</th>
-                            <th scope="col">2日</th>
-                            <th scope="col">3日</th>
-                            <th scope="col">4日</th>
-                            <th scope="col">5日</th>
-                            <th scope="col">6日</th>
-                            <th scope="col">7日</th>
-                            <th scope="col">8日</th>
-                            <th scope="col">9日</th>
-                            <th scope="col">10月</th>
-                            <th scope="col">11日</th>
-                            <th scope="col">12日</th>
-                            <th scope="col">13日</th>
-                            <th scope="col">14日</th>
-                            <th scope="col">15日</th>
-                            <th scope="col">16日</th>
-                            <th scope="col">17日</th>
-                            <th scope="col">18日</th>
-                            <th scope="col">19日</th>
-                            <th scope="col">20日</th>
-                            <th scope="col">21月</th>
-                            <th scope="col">22日</th>
-                            <th scope="col">23日</th>
-                            <th scope="col">24日</th>
-                            <th scope="col">25日</th>
-                            <th scope="col">26日</th>
-                            <th scope="col">27日</th>
-                            <th scope="col">28日</th>
-                            <th scope="col">29日</th>
-                            <th scope="col">30日</th>
+                            <th scope="col">9月</th><!--Date関数を使う？-->
+                            @for($i = 1; $i <= 30; $i++)
+                            <th scope="col">{{ $i }}日</th>
+                            @endfor
                         </tr>
                     </thead>
                     <form action="{{ action('Admin\ShiftController@create') }}" method="post" >
                         @csrf
                         <tbody>
                             <tr>
-                                <th scope="row">Aさん</th>
+                                @foreach($members as $m)
+                                    <th scope="row">{{ $m->member_name }}</th>
+                                @for($i = 1; $i <=30; $i++)
                                     <td>
                                         <select name="duty">
-                                            <option value="1">A</option>
-                                            <option value="2">AC</option>
-                                            <option value="3">AD</option>
-                                            <option value="4">a</option>
-                                            <option value="5">0817</option>
-                                            <option value="6">0917</option>
-                                            <option value="7">C</option>
-                                            <option value="8">1120</option>
-                                            <option value="9">D</option>
-                                            <option value="10">y</option>
-                                            <option value="11">y900</option>
-                                            <option value="12">休</option>
+                                            @foreach($duty as $d)
+                                                <option name="touban{{ $d->id }}[]" value="{{ $d->id }}">{{ $d->duty }}</option>
+                                            @endforeach
+                                            <!--<option value="1">A</option>-->
+                                            <!--<option value="2">AC</option>-->
+                                            <!--<option value="3">AD</option>-->
+                                            <!--<option value="4">a</option>-->
+                                            <!--<option value="5">0817</option>-->
+                                            <!--<option value="6">0917</option>-->
+                                            <!--<option value="7">C</option>-->
+                                            <!--<option value="8">1120</option>-->
+                                            <!--<option value="9">D</option>-->
+                                            <!--<option value="10">y</option>-->
+                                            <!--<option value="11">y900</option>-->
+                                            <!--<option value="12">休</option>-->
                                         </select>
                                     </td>
-                                    <td>
-                                         <select name="duty">
-                                            <option value="1">A</option>
-                                            <option value="2">AC</option>
-                                            <option value="3">AD</option>
-                                            <option value="4">a</option>
-                                            <option value="5">0817</option>
-                                            <option value="6">0917</option>
-                                            <option value="7">C</option>
-                                            <option value="8">1120</option>
-                                            <option value="9">D</option>
-                                            <option value="10">y</option>
-                                            <option value="11">y900</option>
-                                            <option value="12">休</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                         <select name="duty">
-                                            <option value="1">A</option>
-                                            <option value="2">AC</option>
-                                            <option value="3">AD</option>
-                                            <option value="4">a</option>
-                                            <option value="5">0817</option>
-                                            <option value="6">0917</option>
-                                            <option value="7">C</option>
-                                            <option value="8">1120</option>
-                                            <option value="9">D</option>
-                                            <option value="10">y</option>
-                                            <option value="11">y900</option>
-                                            <option value="12">休</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                         <select name="duty">
-                                            <option value="1">A</option>
-                                            <option value="2">AC</option>
-                                            <option value="3">AD</option>
-                                            <option value="4">a</option>
-                                            <option value="5">0817</option>
-                                            <option value="6">0917</option>
-                                            <option value="7">C</option>
-                                            <option value="8">1120</option>
-                                            <option value="9">D</option>
-                                            <option value="10">y</option>
-                                            <option value="11">y900</option>
-                                            <option value="12">休</option>
-                                        </select>
-                                    </td>
+                                @endfor
+                                    <!--<td>-->
+                                    <!--     <select name="duty">-->
+                                    <!--        @foreach($duty as $d)-->
+                                    <!--            <option value="{{ $d->id }}">{{ $d}}</option>-->
+                                    <!--        @endforeach-->
+                                    <!--    </select>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                    <!--     <select name="duty">-->
+                                    <!--        <option value="1">A</option>-->
+                                    <!--        <option value="2">AC</option>-->
+                                    <!--        <option value="3">AD</option>-->
+                                    <!--        <option value="4">a</option>-->
+                                    <!--        <option value="5">0817</option>-->
+                                    <!--        <option value="6">0917</option>-->
+                                    <!--        <option value="7">C</option>-->
+                                    <!--        <option value="8">1120</option>-->
+                                    <!--        <option value="9">D</option>-->
+                                    <!--        <option value="10">y</option>-->
+                                    <!--        <option value="11">y900</option>-->
+                                    <!--        <option value="12">休</option>-->
+                                    <!--    </select>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                    <!--     <select name="duty">-->
+                                    <!--        <option value="1">A</option>-->
+                                    <!--        <option value="2">AC</option>-->
+                                    <!--        <option value="3">AD</option>-->
+                                    <!--        <option value="4">a</option>-->
+                                    <!--        <option value="5">0817</option>-->
+                                    <!--        <option value="6">0917</option>-->
+                                    <!--        <option value="7">C</option>-->
+                                    <!--        <option value="8">1120</option>-->
+                                    <!--        <option value="9">D</option>-->
+                                    <!--        <option value="10">y</option>-->
+                                    <!--        <option value="11">y900</option>-->
+                                    <!--        <option value="12">休</option>-->
+                                    <!--    </select>-->
+                                    <!--</td>-->
                             </tr>
-                             <tr>
-                                <th scope="row">Bさん</th>
-                                <td>A</td>
-                                <td>B</td>
-                                <td>C</td>
-                                <td>D</td>
-                            </tr>
-                             <tr>
-                                <th scope="row">Cさん</th>
-                                <td>A</td>
-                                <td>B</td>
-                                <td>C</td>
-                                <td>D</td>
-                            </tr>
-                             <tr>
-                                <th scope="row">Dさん</th>
-                                <td>A</td>
-                                <td>B</td>
-                                <td>C</td>
-                                <td>D</td>
-                            </tr>
+                            @endforeach
+                            <!-- <tr>-->
+                            <!--    <th scope="row">Bさん</th>-->
+                            <!--    <td>A</td>-->
+                            <!--    <td>B</td>-->
+                            <!--    <td>C</td>-->
+                            <!--    <td>D</td>-->
+                            <!--</tr>-->
+                            <!-- <tr>-->
+                            <!--    <th scope="row">Cさん</th>-->
+                            <!--    <td>A</td>-->
+                            <!--    <td>B</td>-->
+                            <!--    <td>C</td>-->
+                            <!--    <td>D</td>-->
+                            <!--</tr>-->
+                            <!-- <tr>-->
+                            <!--    <th scope="row">Dさん</th>-->
+                            <!--    <td>A</td>-->
+                            <!--    <td>B</td>-->
+                            <!--    <td>C</td>-->
+                            <!--    <td>D</td>-->
+                            <!--</tr>-->
                         </tbody>
                         <input type="submit" class="btn btn-primary" value="登録">
                     </form>

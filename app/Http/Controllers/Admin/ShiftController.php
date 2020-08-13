@@ -6,17 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member;
 use App\CompleteShift;
+use App\ShiftRules;
 
 class ShiftController extends Controller
 {
     //
     public function add()
     {
-        return view('admin.shift.create');
+        $duty = ShiftRules::all();
+        $members = Member::all();
+        return view('admin.shift.create', ['duty' =>$duty], ['members' => $members]);
     }
     
     public function create()
     {
+        //コントローラーに情報を送る
+        //誰のシフト情報か判別できるようにviewからcontrollerに送る
+        //多次元配列を使う
+        var_dump($touban);
+        return;
+        
         $this->validate($request, CompleteShift::$rules);
         $shift = new ShiftRules;
         $form = $request->all();

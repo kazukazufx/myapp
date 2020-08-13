@@ -47,10 +47,70 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Aさん</th>
-                                    <td>A</td>
-                                    <td>B</td>
-                                    <td>C</td>
-                                    <td>D</td>
+                                        <td>
+                                            <select name="duty">
+                                                <option value="1">A</option>
+                                                <option value="2">AC</option>
+                                                <option value="3">AD</option>
+                                                <option value="4">a</option>
+                                                <option value="5">0817</option>
+                                                <option value="6">0917</option>
+                                                <option value="7">C</option>
+                                                <option value="8">1120</option>
+                                                <option value="9">D</option>
+                                                <option value="10">y</option>
+                                                <option value="11">y900</option>
+                                                <option value="12">休</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="duty">
+                                                <option value="1">A</option>
+                                                <option value="2">AC</option>
+                                                <option value="3">AD</option>
+                                                <option value="4">a</option>
+                                                <option value="5">0817</option>
+                                                <option value="6">0917</option>
+                                                <option value="7">C</option>
+                                                <option value="8">1120</option>
+                                                <option value="9">D</option>
+                                                <option value="10">y</option>
+                                                <option value="11">y900</option>
+                                                <option value="12">休</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="duty">
+                                                <option value="1">A</option>
+                                                <option value="2">AC</option>
+                                                <option value="3">AD</option>
+                                                <option value="4">a</option>
+                                                <option value="5">0817</option>
+                                                <option value="6">0917</option>
+                                                <option value="7">C</option>
+                                                <option value="8">1120</option>
+                                                <option value="9">D</option>
+                                                <option value="10">y</option>
+                                                <option value="11">y900</option>
+                                                <option value="12">休</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="duty">
+                                                <option value="1">A</option>
+                                                <option value="2">AC</option>
+                                                <option value="3">AD</option>
+                                                <option value="4">a</option>
+                                                <option value="5">0817</option>
+                                                <option value="6">0917</option>
+                                                <option value="7">C</option>
+                                                <option value="8">1120</option>
+                                                <option value="9">D</option>
+                                                <option value="10">y</option>
+                                                <option value="11">y900</option>
+                                                <option value="12">休</option>
+                                            </select>
+                                        </td>
                                 </tr>
                                  <tr>
                                     <th scope="row">Bさん</th>
