@@ -18,12 +18,12 @@ class ShiftController extends Controller
         return view('admin.shift.create', ['duty' =>$duty], ['members' => $members]);
     }
     
-    public function create()
+    public function create(Request $request)
     {
         //コントローラーに情報を送る
         //誰のシフト情報か判別できるようにviewからcontrollerに送る
         //多次元配列を使う
-        var_dump($touban);
+        var_dump($request->duty);
         return;
         
         $this->validate($request, CompleteShift::$rules);

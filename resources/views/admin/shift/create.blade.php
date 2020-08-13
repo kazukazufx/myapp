@@ -7,6 +7,8 @@
          <div class="row">
             <div class="col-md-12 mx-auto">
                 <h2>シフト作成画面</h2>
+                <form action="{{ action('Admin\ShiftController@create') }}" method="post" >
+                    @csrf
                 <table class="table table-dark table-striped table-bordered table-hover table-sm">
                     <thead>
                         <tr>
@@ -16,17 +18,17 @@
                             @endfor
                         </tr>
                     </thead>
-                    <form action="{{ action('Admin\ShiftController@create') }}" method="post" >
-                        @csrf
+                    <!--<form action="{{ action('Admin\ShiftController@create') }}" method="post" >-->
+                        <!--@csrf-->
                         <tbody>
                             <tr>
                                 @foreach($members as $m)
                                     <th scope="row">{{ $m->member_name }}</th>
                                 @for($i = 1; $i <=30; $i++)
                                     <td>
-                                        <select name="duty">
+                                        <select name="duty[]">
                                             @foreach($duty as $d)
-                                                <option name="touban{{ $d->id }}[]" value="{{ $d->id }}">{{ $d->duty }}</option>
+                                                <option value="{{ $d->id }}">{{ $d->duty }}</option>
                                             @endforeach
                                             <!--<option value="1">A</option>-->
                                             <!--<option value="2">AC</option>-->
