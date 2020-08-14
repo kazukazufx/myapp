@@ -8,7 +8,7 @@
             <div class="col-md-12 mx-auto">
                 <h2>シフト作成画面</h2>
                 <form action="{{ action('Admin\ShiftController@create') }}" method="post" >
-                    @csrf
+                @csrf
                 <table class="table table-dark table-striped table-bordered table-hover table-sm">
                     <thead>
                         <tr>

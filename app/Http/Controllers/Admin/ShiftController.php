@@ -26,7 +26,7 @@ class ShiftController extends Controller
         return;
         
         $this->validate($request, CompleteShift::$rules);
-        $shift = new ShiftRules;
+        $shift = new CompleteShift;
         $form = $request->all();
         unset($form['_token']);
         $shift->fill($form);
