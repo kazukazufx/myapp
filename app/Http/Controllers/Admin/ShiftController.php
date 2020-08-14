@@ -22,7 +22,6 @@ class ShiftController extends Controller
     {
         //コントローラーに情報を送る
         //誰のシフト情報か判別できるようにviewからcontrollerに送る
-        //多次元配列を使う
         var_dump($request->duty);
         return;
         
