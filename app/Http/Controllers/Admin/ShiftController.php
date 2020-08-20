@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Member;
 use App\CompleteShift;
 use App\ShiftRules;
+use Illuminate\Support\Facades\Auth;
 
 class ShiftController extends Controller
 {
@@ -20,19 +21,32 @@ class ShiftController extends Controller
     
     public function create(Request $request)
     {
-        //コントローラーに情報を送る
-        //誰のシフト情報か判別できるようにviewからcontrollerに送る
-        var_dump($request->duty);
-        return;
+        //多次元配列でviewからcontrollerにデータを送る
+        //受け取ったデータを保存したい順番に整理する
+        //データベースに保存する
+        // foreach($request->duty as $member_id => $duty)
+        // {
+        //     var_dump($member_id);
+        //     var_dump($duty);
+        // }
         
-        $this->validate($request, CompleteShift::$rules);
+        // // var_dump($request->duty);
+        // return;
+        $admin_id = Auth::user()->id;
+        $admin_name = Auth::user()->name;
+        
+        // $this->validate($request, CompleteShift::$rules);
+       
         $shift = new CompleteShift;
-        $form = $request->all();
-        unset($form['_token']);
-        $shift->fill($form);
+        $shift->admin_id = $admin_id;
+        $shift->admin_name = $admin_name;
+        $shift->day = '1';
+        $shift->month = $request->month;
+        $shift->year = $request->year;
         $shift->save();
         
-        return redirect('admin/shift/create');
+        // return redirect('admin/shift/create');
+        return view('admin/shift/complete');
     }
     
     public function edit(Request $request)

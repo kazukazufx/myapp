@@ -11,11 +11,13 @@ class CompleteShift extends Model
     
     public static $rules = array(
         'admin_id' => 'required',
-        'member_id' => 'required',
+        // 'member_id' => 'required',
         'admin_name' => 'required',
-        'member_name' => 'required',
+        // 'member_name' => 'required',
         'day' =>'required',
         'month' =>'required',
         'year' => 'required',
         );
+        
+    protected $table = 'complete_shift';
 }
