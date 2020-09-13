@@ -15,4 +15,6 @@ class MemberDuty extends Model
         'member_id' => 'required',
         'duty' => 'required',
         );
+        
+    protected $table = 'member_duty';
 }

@@ -20,4 +20,9 @@ class CompleteShift extends Model
         );
         
     protected $table = 'complete_shift';
+    
+    public function memberDuties()
+    {
+        return $this->hasMany(MemberDuty::class);
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Member;
 use App\CompleteShift;
 use App\ShiftRules;
+use App\MemberDuty;
 use Illuminate\Support\Facades\Auth;
 
 class ShiftController extends Controller
@@ -30,32 +31,39 @@ class ShiftController extends Controller
         //     var_dump($duty);
         // }
         
-        // // var_dump($request->duty);
+        // var_dump($request->duty);
         // return;
         $admin_id = Auth::user()->id;
         $admin_name = Auth::user()->name;
         
         // $this->validate($request, CompleteShift::$rules);
        
+        foreach($request->duty as $day => $members){
         $shift = new CompleteShift;
         $shift->admin_id = $admin_id;
         $shift->admin_name = $admin_name;
-        $shift->day = '1';
+        $shift->day = $day;
         $shift->month = $request->month;
         $shift->year = $request->year;
         $shift->save();
         
+        foreach($members as $memberId => $duty){
+            $shift->memberDuties()->updateOrCreate(
+                ['member_id' => $memberId],
+                ['admin_id' => $admin_id, 'duty' => $duty]);
+        }
+        }
         // return redirect('admin/shift/create');
         return view('admin/shift/complete');
     }
     
     public function edit(Request $request)
     {
-        $shift = CompleteShift::find($shift->id);
+        $shift = CompleteShift::find($request->id);
         if(empty($shift)) {
             abort(404);
         }
-        return view('admin.shift.edit');
+        return view('admin.shift.edit', ['members' => $shift]);
     }
     
     public function update(Request $request)

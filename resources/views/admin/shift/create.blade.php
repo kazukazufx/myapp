@@ -13,8 +13,8 @@
                     <thead>
                         <tr>
                             <th scope="col">
-                            <input type="text" name="year" value="2020">
-                            <input type="text" name="month" value="9">
+                            <input type="text" name="year" value="">
+                            <input type="text" name="month" value="">
                                 月</th>
                             @for($i = 1; $i <= 30; $i++)
                             <th scope="col">{{ $i }}日</th>
@@ -25,9 +25,9 @@
                             @foreach($members as $m)
                                 <tr>
                                     <th scope="row">{{ $m->member_name }}</th>
-                                @for($i = 1; $i <=1; $i++)
+                                @for($i = 1; $i <=7; $i++)
                                     <td>
-                                        <select name="duty[{{ $m->id }}][]">
+                                        <select name="duty[{{ $i }}][{{ $m->id }}]">
                                             @foreach($duty as $d)
                                                 <option value="{{ $d->id }}">{{ $d->duty }}</option>
                                             @endforeach
