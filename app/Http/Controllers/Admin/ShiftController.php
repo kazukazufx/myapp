@@ -63,7 +63,9 @@ class ShiftController extends Controller
         if(empty($shift)) {
             abort(404);
         }
-        return view('admin.shift.edit', ['members' => $shift]);
+        $members = Member::all();
+        $duty = ShiftRules::all();
+        return view('admin.shift.edit', ['shift' => $shift, 'members' => $members, 'duty' => $duty]);
     }
     
     public function update(Request $request)
