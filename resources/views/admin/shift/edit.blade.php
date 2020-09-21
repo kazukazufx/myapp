@@ -6,7 +6,7 @@
     <div class="container">
          <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>シフト作成画面</h2>
+                <h2>シフト変更画面</h2>
                 <form action="{{ action('Admin\ShiftController@create') }}" method="post" >
                 @csrf
                 <table class="table table-dark table-striped table-bordered table-hover table-sm">
@@ -28,8 +28,8 @@
                                 @for($i = 1; $i <=7; $i++)
                                     <td>
                                         <select name="duty[{{ $i }}][{{ $m->id }}]">
-                                            @foreach($duty as $d)
-                                                <option value="{{ $d->id }}">{{ $shift->memberDuties }}</option>
+                                            @foreach($shift->memberDuties as $memberDuty)
+                                                <option value="{{ $memberDuty->id }}">{{ $memberDuty->duty }}</option>
                                             @endforeach
                                         </select>
                                     </td>
