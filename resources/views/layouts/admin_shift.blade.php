@@ -14,8 +14,8 @@
 
         <!-- Scripts -->
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
-        <!--<script src="{{ secure_asset('js/app.js') }}" defer></script>-->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        <!--<script src="{{ asset('js/app.js') }}" defer></script> //https固定の為assetは使えない-->
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -23,11 +23,11 @@
 
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
-        <!--<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">-->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">　//https固定の為assetは使えない-->
         {{-- この章の後半で作成するCSSを読み込みます --}}
-        <!--<link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">-->
-        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        <!--<link href="{{ asset('css/admin.css') }}" rel="stylesheet">　//https固定の為assetは使えない-->
     </head>
     <body>
         <div id="app">
