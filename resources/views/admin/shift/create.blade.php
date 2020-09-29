@@ -8,19 +8,19 @@
             <div class="col-md-12 mx-auto">
                 <h2>シフト作成画面</h2>
                 <form action="{{ action('Admin\ShiftController@create') }}" method="post" >
-                @csrf
-                <table class="table table-dark table-striped table-bordered table-hover table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">
-                            <input type="text" name="year" value="">
-                            <input type="text" name="month" value="">
-                                月</th>
-                            @for($i = 1; $i <= 30; $i++)
-                            <th scope="col">{{ $i }}日</th>
-                            @endfor
-                        </tr>
-                    </thead>
+                    @csrf
+                    <table class="table table-dark table-striped table-bordered table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                <input type="text" name="year" value="">
+                                <input type="text" name="month" value="">
+                                    月</th>
+                                @for($i = 1; $i <= 30; $i++)
+                                <th scope="col">{{ $i }}日</th>
+                                @endfor
+                            </tr>
+                        </thead>
                         <tbody>
                             @foreach($members as $m)
                                 <tr>
@@ -37,9 +37,9 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                        <input type="submit" class="btn btn-primary" value="登録">
-                    </form>
-                </table>
+                    </table>
+                    <input type="submit" class="btn btn-primary" value="登録">
+                </form>
             </div>
         </div>
     </div>
