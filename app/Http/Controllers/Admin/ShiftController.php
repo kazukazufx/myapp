@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Member;
+use Carbon\Carbon;
+use App\MemberDuty;
+use App\ShiftRules;
+use App\CompleteShift;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member;
-use App\CompleteShift;
-use App\ShiftRules;
-use App\MemberDuty;
 use Illuminate\Support\Facades\Auth;
 
 class ShiftController extends Controller
@@ -59,13 +60,21 @@ class ShiftController extends Controller
     
     public function edit(Request $request)
     {
-        $shift = CompleteShift::find($request->id);
-        if(empty($shift)) {
-            abort(404);
-        }
+        $year = $request->year ?? Carbon::now()->year;
+        $month = $request->month ?? Carbon::now()->month;
+        $date = Carbon::create($year, $month, 1, 0, 0, 0);
+        
+        $shifts = CompleteShift::where('year', $year)->where('month', $month)->get();
         $members = Member::all();
         $duty = ShiftRules::all();
-        return view('admin.shift.edit', ['shift' => $shift, 'members' => $members, 'duty' => $duty]);
+        return view('admin.shift.edit', [
+            'members' => $members,
+            'duty' => $duty,
+            'year' => $year,
+            'month' => $month,
+            'date' => $date,
+            'shifts' => $shifts,
+        ]);
     }
     
     public function update(Request $request)
